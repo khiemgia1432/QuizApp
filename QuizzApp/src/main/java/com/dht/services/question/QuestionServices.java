@@ -2,15 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.dht.services;
+package com.dht.services.question;
 
-import com.dht.pojo.Category;
+import com.dht.pojo.Question;
 import com.dht.utils.MyConnSingleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,23 +17,22 @@ import java.util.List;
  *
  * @author admin
  */
-public class CategoryServices {
-
-    public List<Category> getCates() throws SQLException {
+public class QuestionServices {
+    public List<Question> getQuestions() throws SQLException {
         Connection conn = MyConnSingleton.getInstance().connect();
        
-        String sql = "SELECT * FROM category";
+        String sql = "SELECT * FROM question ORDER BY id DESC";
         PreparedStatement stm = conn.prepareCall(sql);
         ResultSet rs = stm.executeQuery();
 
-        List<Category> cates = new ArrayList<>();
+        List<Question> questions = new ArrayList<>();
         while (rs.next()) {
             int id = rs.getInt("id");
-            String name = rs.getString("name");
+            String content = rs.getString("content");
 
-            cates.add(new Category(id, name));
+            questions.add(new Question.Builder().setId(id).setContent(content).build());
         }
 
-        return cates;
+        return questions;
     }
 }

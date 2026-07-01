@@ -7,6 +7,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : admin
 */
 
+.combo-box .list-cell {
+    -fx-text-fill: white; 
+}
+
+
+.combo-box .list-view .list-cell {
+    -fx-text-fill: black; 
+}
 .Container {
     -fx-background-color: lightblue;
     -fx-alignment: CENTER;

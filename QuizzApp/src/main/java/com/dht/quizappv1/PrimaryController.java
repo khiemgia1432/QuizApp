@@ -24,7 +24,6 @@ public class PrimaryController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         this.cbThemes.setItems(FXCollections.observableArrayList(ThemeTypes.values()));
     }
     

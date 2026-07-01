@@ -8,14 +8,14 @@ package com.dht.pojo;
  *
  * @author admin
  */
-public class Category {
+public class Level {
     private int id;
     private String name;
 
-    public Category() {
+    public Level() {
     }
 
-    public Category(int id, String name) {
+    public Level(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -25,6 +25,8 @@ public class Category {
         return this.name; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
     
+    
+ 
     /**
      * @return the id
      */

@@ -16,26 +16,30 @@ import javafx.stage.Stage;
  * @author admin
  */
 public class MyStageSingleton {
+
     private static MyStageSingleton instance;
     private Stage stage;
-    
-    private MyStageSingleton(){
+
+    private MyStageSingleton() {
         this.stage = new Stage();
         this.stage.setTitle("Quiz App");
     }
-    
-    public static MyStageSingleton getInstance(){
-        if (instance ==null)
+
+    public static MyStageSingleton getInstance() {
+        if (instance == null) {
             instance = new MyStageSingleton();
-        
+        }
+
         return instance;
     }
-    
-    public void showStage(String fxml){
-        if (!this.stage.isShowing()){
+
+    public void showStage(String fxml) {
+        if (!this.stage.isShowing()) {
             try {
                 Scene scene = new Scene(new FXMLLoader(App.class.getResource(fxml + ".fxml")).load());
+                
                 ThemeManager.applyTheme(scene);
+                
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException ex) {

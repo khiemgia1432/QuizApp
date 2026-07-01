@@ -6,17 +6,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : Jun 16, 2026, 3:06:23 PM
     Author     : admin
 */
-
-* {
-    -fx-font-family: "Verdana";
+/* Color of the selected item in the closed ComboBox */
+.combo-box .list-cell {
+    -fx-text-fill: white; 
 }
 
+/* Color of the items in the open drop-down list */
+.combo-box .list-view .list-cell {
+    -fx-text-fill: black; 
+}
 .Container {
     -fx-background-color: #121212;
     -fx-alignment: CENTER;
     -fx-spacing: 15;
     -fx-padding: 10;
-
 }
 
 .Subject {

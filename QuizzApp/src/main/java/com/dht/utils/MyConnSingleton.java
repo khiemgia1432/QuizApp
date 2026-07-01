@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class MyConnSingleton {
     private static MyConnSingleton instance;
     private Connection conn;
+    
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,7 +26,7 @@ public class MyConnSingleton {
         }
     }
     
-    private MyConnSingleton(){
+    private MyConnSingleton() {
         try {
             this.conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "root");
         } catch (SQLException ex) {
@@ -33,24 +34,23 @@ public class MyConnSingleton {
         }
     }
     
-    public static MyConnSingleton getInstance(){
+    public static MyConnSingleton getInstance() {
         if (instance == null)
             instance = new MyConnSingleton();
         
         return instance;
     }
     
-    public Connection connect(){
+    public Connection connect() {
         return this.conn;
     }
     
-    public void close(){
-        if (this.conn != null){
+    public void close() {
+        if (this.conn != null)
             try {
                 this.conn.close();
             } catch (SQLException ex) {
                 Logger.getLogger(MyConnSingleton.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
     }
 }
