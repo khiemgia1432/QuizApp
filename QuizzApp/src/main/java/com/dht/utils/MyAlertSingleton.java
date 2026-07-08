@@ -34,7 +34,7 @@ public class MyAlertSingleton {
         this.alert.show();
     }
     
-    public Optional<ButtonType> showMsg(String content, Alert.AlertType type){
+    public Optional<ButtonType> showMsg(String content, Alert.AlertType type) {
         this.alert.setContentText(content);
         this.alert.setAlertType(type);
         return this.alert.showAndWait();

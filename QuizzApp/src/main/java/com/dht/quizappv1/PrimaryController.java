@@ -32,7 +32,7 @@ public class PrimaryController implements Initializable {
     }
     
     public void practice(ActionEvent e) {
-        MyAlertSingleton.getInstance().showMsg("[practice] Comming soon...");
+        MyStageSingleton.getInstance().showStage("pratice");
     }
     
     public void exam(ActionEvent e) {

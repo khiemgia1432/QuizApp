@@ -6,42 +6,54 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="736.0" styleClass="Container" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dht.quizappv1.QuestionsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="746.0" styleClass="Container" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dht.quizappv1.QuestionsController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="Quản lý câu hỏi" />
-      <TextArea fx:id="txtContent" prefHeight="64.0" prefWidth="716.0" promptText="Nội dung câu hỏi" />
+      <TextArea fx:id="txtContent" prefHeight="86.0" prefWidth="600.0" promptText="Nội dung câu hỏi..." />
       <HBox styleClass="Container">
          <children>
-            <ComboBox fx:id="cbCates" prefWidth="150.0" styleClass="Button" />
-            <ComboBox fx:id="cblevels" prefWidth="150.0" promptText="Mức độ" style="-fx-fill: red;" styleClass="Button" />
+            <ComboBox fx:id="cbCates" prefWidth="150.0" promptText="Danh mục" styleClass="Button" />
+            <ComboBox fx:id="cbLevels" prefWidth="150.0" promptText="Mức độ" styleClass="Button" />
          </children>
       </HBox>
-      <VBox fx:id="vchoices" prefHeight="73.0" prefWidth="716.0">
+      <VBox fx:id="vChoices" prefHeight="125.0" prefWidth="726.0">
          <children>
-            <HBox prefHeight="37.0" prefWidth="580.0" styleClass="Container">
+            <HBox prefHeight="41.0" prefWidth="726.0" styleClass="Container">
                <children>
-                  <RadioButton mnemonicParsing="false" />
-                  <TextField />
+                  <RadioButton mnemonicParsing="false">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toggle" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <TextField styleClass="Input" />
                </children>
             </HBox>
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="37.0" prefWidth="580.0" styleClass="Container">
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="41.0" prefWidth="726.0" styleClass="Container">
                <children>
-                  <RadioButton mnemonicParsing="false" />
-                  <TextField />
+                  <RadioButton mnemonicParsing="false" toggleGroup="$toggle" />
+                  <TextField styleClass="Input" />
                </children>
             </HBox>
          </children>
       </VBox>
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="Container">
          <children>
-            <Button mnemonicParsing="false" onAction="#addQuestion" style="-fx-background-color: red;" styleClass="Button" text="Thêm câu hỏi" textFill="#e1e1e1" />
+            <Button mnemonicParsing="false" onAction="#addQuestion" style="-fx-background-color: red;" styleClass="Button" text="Thêm câu hỏi" />
             <Button mnemonicParsing="false" onAction="#addChoice" styleClass="Button" text="Thêm phương án" />
          </children>
       </HBox>
-      <TableView fx:id="tvQuestions" prefHeight="264.0" prefWidth="716.0" />
+      <HBox prefHeight="54.0" prefWidth="726.0" styleClass="Container">
+         <children>
+            <TextField fx:id="txtKeywords" />
+            <ComboBox fx:id="cbSearchCates" prefWidth="150.0" />
+            <ComboBox fx:id="cbSearchLevels" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <TableView fx:id="tvQuestions" prefHeight="238.0" prefWidth="726.0" />
    </children>
 </VBox>
